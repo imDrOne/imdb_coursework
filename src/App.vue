@@ -1,60 +1,67 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+  <v-app class="theme--dark">
+    <v-app-bar app dark>
+      <d-bar-content/>
     </v-app-bar>
-
     <v-content>
-      <HelloWorld/>
+     <v-row justify="center">
+       <v-container style="height: 2000px">
+         <d-slider
+           :card-size="wideSize"
+           wide
+         />
+       </v-container>
+     </v-row>
     </v-content>
+    <v-footer app dark absolute>
+      <v-col
+        class="text-center"
+        cols="12"
+        v-html="footerContent"
+      />
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import { mapActions } from 'vuex'
+import DBarContent from './components/BarContent'
+import DSlider from './components/Slider'
 export default {
   name: 'App',
 
   components: {
-    HelloWorld
+    DSlider,
+    DBarContent
+    //
+  },
+
+  mounted () {
+    this.testGet()
   },
 
   data: () => ({
-    //
-  })
+    author: 'Тихолоз Андрей',
+    contentRowColor: '',
+    wideSize: {
+      width: 350,
+      height: 230
+    }
+  }),
+  computed: {
+    footerContent () {
+      return `${new Date().getFullYear()} - <strong>${this.author}</strong>`
+    }
+  },
+  methods: {
+    ...mapActions({
+      testGet: 'UPDATE_STORE'
+    })
+  }
 }
 </script>
+<style lang="scss">
+  .content {
+    background-color: #272727;
+  }
+</style>
