@@ -1,23 +1,35 @@
 <template>
   <div id="slider">
     <v-slide-group
-      v-model="model"
       dark
       center-active
       show-arrows
     >
       <v-slide-item
-        v-for="n in 4"
-        :key="n"
+        v-for="film in topFilms"
+        :key="film.id"
+        :value="model"
         v-slot:default="{ active, toggle }"
       >
         <v-card
-          :color="active ? 'grey' : '#121212'"
-          flat class="ma-3" :width="cardSize.width" :height="cardSize.height"
+          :color="active ? 'blue-grey darken-3' : '#121212'"
+          flat class="ma-3"
           @click="toggle"
         >
-          <v-img  height="200" :src="getImage(n)"/>
-          <v-card-text class="pa-0 text--primary">lol</v-card-text>
+          <v-img width="300" height="400" :src="film.img"/>
+          <v-card-text class="pa-0 title">{{film.name}}</v-card-text>
+          <v-card-actions class="pa-0">
+            <v-row no-gutters align="center" justify="space-between">
+              <v-rating
+                :value="+film.avgfilm"
+                color="amber"
+                dense length="10"
+                half-increments
+                readonly size="14"
+              />
+              <v-btn text>More</v-btn>
+            </v-row>
+          </v-card-actions>
         </v-card>
       </v-slide-item>
     </v-slide-group>
@@ -25,38 +37,24 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'd-slider',
   props: {
-    cardSize: {
-      type: Object
-    },
-    imgType: {
-      type: String
-    },
     wide: Boolean
-  },
-  created () {
-    this.imageType = this.imgType
   },
   data: () => ({
     model: null,
-    localImgType: '',
-    pathArr: ['@/assets/content_1.jpg', '@/assets/content_2.jpg', '@/assets/content_3.jpg', '@/assets/content_4.jpg']
+    loading: false
   }),
   computed: {
-    imageType: {
-      set (newVal) {
-        this.localImgType = newVal
-      },
-      get () {
-        return this.localImgType
-      }
-    }
+    ...mapGetters({
+      topFilms: 'GET_TOP_FILMS'
+    })
   },
   methods: {
-    getImage (i) {
-      if (this.wide) return require(`@/assets/content_${i}.jpg`)
+    test () {
+      console.log(123)
     }
   }
 }

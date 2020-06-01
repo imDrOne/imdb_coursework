@@ -6,10 +6,8 @@
     <v-content>
      <v-row justify="center">
        <v-container style="height: 2000px">
-         <d-slider
-           :card-size="wideSize"
-           wide
-         />
+         <div class="flex display-1">Top films</div>
+         <d-slider wide/>
        </v-container>
      </v-row>
     </v-content>
@@ -33,20 +31,15 @@ export default {
   components: {
     DSlider,
     DBarContent
-    //
   },
 
   mounted () {
-    this.testGet()
+    this.fetchRootData()
   },
 
   data: () => ({
     author: 'Тихолоз Андрей',
-    contentRowColor: '',
-    wideSize: {
-      width: 350,
-      height: 230
-    }
+    contentRowColor: ''
   }),
   computed: {
     footerContent () {
@@ -55,7 +48,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      testGet: 'UPDATE_STORE'
+      fetchRootData: 'UPDATE_STORE'
     })
   }
 }
