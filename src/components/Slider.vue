@@ -27,7 +27,7 @@
                 half-increments
                 readonly size="14"
               />
-              <v-btn text>Подробнее</v-btn>
+              <v-btn text :to="{name: 'film', params: {id: film.id_film}}">Подробнее</v-btn>
             </v-row>
           </v-card-actions>
         </v-card>
