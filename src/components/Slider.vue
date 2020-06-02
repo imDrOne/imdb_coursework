@@ -27,7 +27,7 @@
                 half-increments
                 readonly size="14"
               />
-              <v-btn text>More</v-btn>
+              <v-btn text>Подробнее</v-btn>
             </v-row>
           </v-card-actions>
         </v-card>
