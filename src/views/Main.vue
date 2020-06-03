@@ -41,7 +41,7 @@ export default {
   components: { DSlider },
   computed: {
     ...mapGetters({
-      acterWithOscars: 'GET_ACTERS_WITH_OSCARS' // актеры из  оскароносных фильмов!
+      acterWithOscars: 'GET_ACTERS_AT_TOP_FILMS'
     }),
     avatar (acter) {
       return acter.avatar === null ? 'https://api.adorable.io/avatars/285/abott@adorable.png' : acter.avatar
