@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     tops: {},
     actersAtTopFilms: [],
-    actersAndAwards: []
+    actersAndAwards: [],
+    filmsInformation: []
   },
   mutations: {
     UPDATE_STORE (state, payload) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     UPDATE_ACTERS_AWARDS (state, payload) {
       state.actersAndAwards = payload
+    },
+    UPDATE_FILMS_INFORMATION (state, payload) {
+      state.filmsInformation = payload
     }
   },
   actions: {
@@ -29,6 +33,7 @@ export default new Vuex.Store({
           commit('UPDATE_STORE', response.data.tops)
           commit('UPDATE_ACTERS_AT_TOP_FILMS', response.data.actersAtTopFilms)
           commit('UPDATE_ACTERS_AWARDS', response.data.actersInformation)
+          commit('UPDATE_FILMS_INFORMATION', response.data.filmsAndTags)
         })
         .catch(error => console.log(error))
     }
@@ -42,6 +47,23 @@ export default new Vuex.Store({
           return obj
         }
       }
+    },
+    GET_INFO_ABOUT_FILM: state => id => {
+      const filmsInfo = state.filmsInformation
+      const filmById = filmsInfo.find(el => el.id === id)
+      const acters = state.actersAndAwards
+      const actersAtFilm = []
+
+      for (let j = 0; j <= acters.length - 1; j++) {
+        for (let k = 0; k <= acters[j].filmInfo.length - 1; k++) {
+          if (filmById.id === acters[j].filmInfo[k].id_film) {
+            const { filmInfo, ...acterInfo } = acters[j]
+            actersAtFilm.push(acterInfo)
+          }
+        }
+      }
+
+      return [filmById, actersAtFilm]
     }
   },
   modules: {

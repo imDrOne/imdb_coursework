@@ -5,8 +5,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'Film'
+  name: 'Film',
+  data: () => ({
+    localData: null
+  }),
+  computed: {
+    ...mapGetters({
+      getFilmInfo: 'GET_INFO_ABOUT_FILM'
+    })
+  },
+  created () {
+    this.localData = this.getFilmInfo(this.$route.params.id)
+  }
 }
 </script>
 
