@@ -30,10 +30,7 @@
 
 <script>
 export default {
-  name: 'd-bar-content',
-  created () {
-    console.log(this.$vuetify)
-  }
+  name: 'd-bar-content'
 }
 </script>
 

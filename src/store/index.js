@@ -35,7 +35,7 @@ export default new Vuex.Store({
           commit('UPDATE_ACTERS_AWARDS', response.data.actersInformation)
           commit('UPDATE_FILMS_INFORMATION', response.data.filmsAndTags)
         })
-        .catch(error => console.log(error))
+        .catch()
     }
   },
   getters: {

@@ -51,11 +51,6 @@ export default {
     ...mapGetters({
       topFilms: 'GET_TOP_FILMS'
     })
-  },
-  methods: {
-    test () {
-      console.log(123)
-    }
   }
 }
 </script>
