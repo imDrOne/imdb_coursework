@@ -28,7 +28,7 @@ export default new Vuex.Store({
   actions: {
     async UPDATE_STORE ({ commit }) {
       await axios
-        .get('http://localhost:4000/api/films')
+        .get('https://pure-waters-67784.herokuapp.com/api/films')
         .then(response => {
           commit('UPDATE_STORE', response.data.tops)
           commit('UPDATE_ACTERS_AT_TOP_FILMS', response.data.actersAtTopFilms)
