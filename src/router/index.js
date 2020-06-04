@@ -28,6 +28,11 @@ const routes = [
     path: '/acters-with-oscars',
     name: 'acters-with-oscars',
     component: () => import('../views/ActerWithOscars')
+  },
+  {
+    path: '/acters-at-top-directors',
+    name: 'acters-at-top-directors',
+    component: () => import('../views/ActersAtTopDirectors')
   }
 ]
 

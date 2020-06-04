@@ -23,7 +23,7 @@
                   />
                 </v-card-text>
                 <v-card-actions>
-                  <v-btn text :to="{name: 'acter', params: {id: acter.id}}">Подробнее</v-btn>
+                  <v-btn color="orange" text :to="{name: 'acter', params: {id: acter.id}}">Подробнее</v-btn>
                 </v-card-actions>
               </v-card>
             </v-row>

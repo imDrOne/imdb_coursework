@@ -7,10 +7,10 @@
   >
     <router-link to="/">
       <v-img
-              src="@/assets/test.png"
-              height="36"
-              contain
-              max-width="90"
+        src="@/assets/test.png"
+        height="36"
+        contain
+        max-width="90"
       />
     </router-link>
     <v-menu bottom :offset-y="true">
@@ -50,7 +50,8 @@ export default {
   data: () => ({
     items: [
       { title: 'Самые строгие критики', to: 'strong-critics' },
-      { title: 'Актеры получившие оскар', to: 'acters-with-oscars' }
+      { title: 'Актеры получившие оскар', to: 'acters-with-oscars' },
+      { title: 'Актеры снявшиеся у лучших режиссеров', to: 'acters-at-top-directors' }
     ]
   })
 }
