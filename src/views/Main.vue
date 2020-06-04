@@ -18,7 +18,7 @@
                 <v-card-text>
                   <v-img height="250"
                          :src="acter.avatar === null
-                    ? 'https://api.adorable.io/avatars/285/abott@adorable.png'
+                    ? `https://api.adorable.io/avatars/285/${acter.acter}@adorable.png`
                     : acter.avatar"
                   />
                 </v-card-text>
