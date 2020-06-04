@@ -5,16 +5,32 @@
     class="mx-12"
     align="center"
   >
-    <v-img
-      src="@/assets/test.png"
-      height="36"
-      contain
-      max-width="90"
-    />
-    <v-btn depressed>
-      <v-icon left color="white">mdi-menu</v-icon>
-      Menu
-    </v-btn>
+    <router-link to="/">
+      <v-img
+              src="@/assets/test.png"
+              height="36"
+              contain
+              max-width="90"
+      />
+    </router-link>
+    <v-menu bottom :offset-y="true">
+      <template v-slot:activator="{ on }">
+        <v-btn depressed v-on="on">
+          <v-icon left color="white" >mdi-menu</v-icon>
+          Menu
+        </v-btn>
+      </template>
+
+      <v-list>
+        <v-list-item
+                v-for="(item, i) in items"
+                :key="i"
+                to="/temp"
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-col cols="8">
       <v-text-field
         outlined color="white"
@@ -30,7 +46,15 @@
 
 <script>
 export default {
-  name: 'd-bar-content'
+  name: 'd-bar-content',
+  data: () => ({
+    items: [
+      { title: 'Самые строгие критики' },
+      { title: 'Актеры получившие оскар' },
+      { title: 'Temp' },
+      { title: 'Temp' }
+    ]
+  })
 }
 </script>
 
