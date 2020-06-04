@@ -50,7 +50,7 @@ export default {
   data: () => ({
     items: [
       { title: 'Самые строгие критики', to: 'strong-critics' },
-      { title: 'Актеры получившие оскар', to: '' }
+      { title: 'Актеры получившие оскар', to: 'acters-with-oscars' }
     ]
   })
 }

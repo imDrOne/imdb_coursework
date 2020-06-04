@@ -8,7 +8,7 @@
           <v-card-title class="pa-1">{{localActerInfo.acter}}</v-card-title>
           <v-img :src="localActerInfo.avatar === null
           ? `https://api.adorable.io/avatars/148/${localActerInfo.acter}@adorable.io.png`
-          : localActerInfo.avatar"></v-img>
+          : localActerInfo.avatar"/>
         </v-card>
       </v-col>
       <v-col>

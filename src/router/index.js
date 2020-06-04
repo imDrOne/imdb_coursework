@@ -23,6 +23,11 @@ const routes = [
     path: '/strong-critics',
     name: 'strong-critics',
     component: () => import('../views/Critics')
+  },
+  {
+    path: '/acters-with-oscars',
+    name: 'acters-with-oscars',
+    component: () => import('../views/ActerWithOscars')
   }
 ]
 

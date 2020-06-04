@@ -27,8 +27,8 @@
         <v-row justify="center">
           <v-card
             class="white mx-2 mb-2 pa-2"
-            max-width="220"
-            max-height="300"
+            width="240"
+            max-height="340"
             v-for="acter  in acters"
             :key="acter.id">
             <v-card-title class="pa-1">{{acter.acter}}</v-card-title>

@@ -10,7 +10,8 @@ export default new Vuex.Store({
     actersAtTopFilms: [],
     actersAndAwards: [],
     filmsInformation: [],
-    badCritics: []
+    badCritics: [],
+    actersWithOscars: []
   },
   mutations: {
     UPDATE_STORE (state, payload) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     UPDATE_BAD_CRITICS (state, payload) {
       state.badCritics = payload
+    },
+    UPDATE_ACTERS_WITH_OSCARS (state, payload) {
+      state.actersWithOscars = payload
     }
   },
   actions: {
@@ -39,6 +43,7 @@ export default new Vuex.Store({
           commit('UPDATE_ACTERS_AWARDS', response.data.actersInformation)
           commit('UPDATE_FILMS_INFORMATION', response.data.filmsAndTags)
           commit('UPDATE_BAD_CRITICS', response.data.badCritics)
+          commit('UPDATE_ACTERS_WITH_OSCARS', response.data.actersWithOscars)
         })
         .catch()
     }
@@ -74,7 +79,9 @@ export default new Vuex.Store({
       return [filmById, actersAtFilm]
     },
 
-    GET_BAD_CRITICS: state => state.badCritics
+    GET_BAD_CRITICS: state => state.badCritics,
+
+    GET_ACTERS_WITH_OSCARS: state => state.actersWithOscars
   },
   modules: {
   }
