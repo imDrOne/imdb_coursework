@@ -25,12 +25,18 @@
       </v-col>
       <v-col>
         <v-row justify="center">
-          <v-card class="white mx-2 mb-2 pa-2"
-                  max-width="220"
-                  max-height="300"
-                  v-for="acter  in acters" :key="acter.id">
+          <v-card
+            class="white mx-2 mb-2 pa-2"
+            max-width="220"
+            max-height="300"
+            v-for="acter  in acters"
+            :key="acter.id">
             <v-card-title class="pa-1">{{acter.acter}}</v-card-title>
-            <v-img :src="acter.avatar" height="200"></v-img>
+            <v-img
+              :src="acter.avatar === null
+              ? `https://api.adorable.io/avatars/148/${acter.acter}@adorable.io.png`
+              : acter.avatar"
+              height="200"></v-img>
           </v-card>
         </v-row>
       </v-col>

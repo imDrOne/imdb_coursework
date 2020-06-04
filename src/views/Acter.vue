@@ -6,14 +6,19 @@
       <v-col cols="3">
         <v-card color="white" class="pa-2">
           <v-card-title class="pa-1">{{localActerInfo.acter}}</v-card-title>
-          <v-img :src="localActerInfo.avatar"></v-img>
+          <v-img :src="localActerInfo.avatar === null
+          ? `https://api.adorable.io/avatars/148/${localActerInfo.acter}@adorable.io.png`
+          : localActerInfo.avatar"></v-img>
         </v-card>
       </v-col>
       <v-col>
-        <v-card color="white"
-                width="700"
-                class="pa-3 mb-2 mx-auto"
-        v-for="film in localActerInfo.filmInfo" :key="film.id_film">
+        <v-card
+          color="white"
+          width="700"
+          class="pa-3 mb-2 mx-auto"
+          v-for="film in localActerInfo.filmInfo"
+          :key="film.id_film"
+        >
           <v-card-title>{{film.film}}</v-card-title>
           <v-card-subtitle>Дата выпуска: {{film.release_date}}</v-card-subtitle>
           <v-row no-gutters>
