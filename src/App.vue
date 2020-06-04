@@ -4,7 +4,12 @@
       <d-bar-content/>
     </v-app-bar>
     <v-content>
-     <router-view></router-view>
+      <v-container v-if="loading" id="div" align="center">
+        <div class="display-4" align="center">
+          App loading...
+        </div>
+      </v-container>
+     <router-view v-else/>
     </v-content>
     <v-footer app dark absolute>
       <v-col
@@ -26,12 +31,14 @@ export default {
     DBarContent
   },
 
-  mounted () {
-    this.fetchRootData()
+  async mounted () {
+    await this.fetchRootData()
+    this.loading = false
   },
 
   data: () => ({
-    author: 'Тихолоз Андрей'
+    author: 'Тихолоз Андрей',
+    loading: true
   }),
   methods: {
     ...mapActions({

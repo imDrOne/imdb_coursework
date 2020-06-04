@@ -25,7 +25,7 @@
         <v-list-item
                 v-for="(item, i) in items"
                 :key="i"
-                to="/temp"
+                :to="{name: item.to}"
         >
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
@@ -49,10 +49,8 @@ export default {
   name: 'd-bar-content',
   data: () => ({
     items: [
-      { title: 'Самые строгие критики' },
-      { title: 'Актеры получившие оскар' },
-      { title: 'Temp' },
-      { title: 'Temp' }
+      { title: 'Самые строгие критики', to: 'strong-critics' },
+      { title: 'Актеры получившие оскар', to: '' }
     ]
   })
 }

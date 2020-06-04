@@ -18,6 +18,11 @@ const routes = [
     path: '/film/:id',
     name: 'film',
     component: () => import('../views/Film')
+  },
+  {
+    path: '/strong-critics',
+    name: 'strong-critics',
+    component: () => import('../views/Critics')
   }
 ]
 
